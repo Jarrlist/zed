@@ -1,0 +1,105 @@
+{
+  // ############  Help the folks at Zed  ###########
+  "telemetry": {
+    "diagnostics": true,
+    "metrics": true,
+  },
+
+  // #############  Apperance stuff #################
+  "buffer_font_weight": 500.0,
+  "buffer_font_family": ".ZedMono",
+  "colorize_brackets": true,
+  "ui_font_weight": 500.0,
+  "ui_font_family": ".SystemUIFont",
+  "buffer_line_height": "standard",
+  "base_keymap": "VSCode",
+  "minimap": {
+    "show": "never",
+  },
+  "use_auto_surround": false,
+  "show_edit_predictions": false,
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Catppuccin Frappé",
+  },
+  "ui_font_size": 11.0,
+  "buffer_font_size": 12.0,
+  "theme": "One Dark",
+  "project_panel": {
+    "indent_size": 15,
+    "folder_icons": false,
+  },
+
+  // #################  Search, files, etc  ###########################
+  /* a lot of these settings should proberbly be project specific.
+   example tube:
+     "file_scan_inclusions": [
+        ".gitignore", "compile_commands.json", ".clangd", ".gitlab-ci.yml", "protocol/**", "src/thirdparty/WonderGUI/**"
+        ,"src/cpp-dsp/signal/**"]
+
+  */
+  "file_types": {
+    "dts": ["*.dts", "*.overlay"],
+    "Python": ["*.py", "SConstruct", "SConscript"],
+  },
+  "use_smartcase_search": false,
+
+  // #####  Language specific and Language servers etc  #######
+  "format_on_save": "off",
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000,
+    },
+  },
+  "lsp": {
+    "scilab-lsp": {
+      "initialization_options": {
+        "semantic_tokens": true,
+      },
+    },
+    "ruff": {
+      "initialization_options": {
+        "settings": {},
+      },
+    },
+  },
+  "languages": {
+  "Python": {
+    "language_servers": [
+      // Disable basedpyright and enable Ty, and otherwise
+      // use the default configuration.
+      "ty",
+      "!basedpyright",
+      "...",
+    ],
+    "lsp": {
+      "ruff": {
+        "settings": {
+          "args": ["--ignore", "E402"]
+        }
+      }
+    }
+  },
+},
+
+  // ##########  AI stuff  ############
+  // Putting API-Keys in a PATH variable seems to work better, then setting them here.
+  "show_completions_on_input": true,
+  "agent": {
+    "inline_assistant_model": {
+      "provider": "google",
+      "model": "gemini-3-flash-preview"
+    },
+    "default_model": {
+      "provider": "google",
+      "model": "gemini-3-pro-preview",
+    },
+    "inline_alternatives": [
+      {
+        "provider": "google",
+        "model": "gemini-3-flash",
+      },
+    ],
+  },
+}
