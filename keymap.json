@@ -3,8 +3,13 @@
     "context": "Editor",
     "use_key_equivalents": false,
     "bindings": {
-      "cmd-/": ["editor::ToggleComments", { "advance_downwards": false }],
-      "cmd-shift-g": ["git::CheckoutBranch", { "advance_downwards": false }]
+      "cmd-/": ["editor::ToggleComments", { "advance_downwards": false }]
+    }
+  },
+  {
+    "bindings": {
+      "alt-cmd-g": "git::CheckoutBranch",
+      "cmd-shift-g": "git_panel::ToggleFocus"
     }
   }
 ]
